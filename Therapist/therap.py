@@ -342,6 +342,39 @@ def apply_theme():
         """,
         unsafe_allow_html=True,
     )
+    if st.session_state.get("dark_mode", False):
+        st.markdown(
+            """
+            <style>
+            :root { color-scheme: dark; }
+            .stApp { color: #f3e8e7; background: radial-gradient(ellipse at 86% 4%, rgba(135, 61, 77, .2), transparent 34rem), linear-gradient(145deg, #211b1d 0%, #292123 55%, #302326 100%); }
+            .stApp h1, .stApp h2, .stApp h3, .stApp [data-testid="stMarkdownContainer"] h1, .stApp [data-testid="stMarkdownContainer"] h2, .stApp [data-testid="stMarkdownContainer"] h3 { color: #f1dfe1; }
+            .stApp [data-testid="stMarkdownContainer"] p, .stApp [data-testid="stCaptionContainer"], .stApp label, .stApp [data-testid="stWidgetLabel"] { color: #e1d2d3; }
+            section[data-testid="stSidebar"] { background: linear-gradient(180deg, #241c1f 0%, #302326 100%); border-color: #49353a; }
+            section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p, section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] { color: #d9c6c8; }
+            section[data-testid="stSidebar"] div[data-testid="stButton"] > button[kind="secondary"] { border-color: #594047; background: #33272b; color: #f0dfe1; }
+            section[data-testid="stSidebar"] div[data-testid="stButton"] > button[kind="secondary"]:hover { background: #493239; color: #fff; }
+            [data-testid="stVerticalBlockBorderWrapper"], [data-testid="stExpander"] { border-color: #59464b; background-color: rgba(48, 36, 40, .86); }
+            [data-testid="stTextInput"] input, [data-testid="stNumberInput"] input, [data-testid="stTextArea"] textarea, [data-testid="stSelectbox"] div[data-baseweb="select"] > div { border-color: #604a50; background-color: #342a2d; color: #f3e8e7; }
+            [data-testid="stFileUploader"] section { border-color: #604a50; background-color: #302629; }
+            [data-testid="stSegmentedControl"] { border-color: #604a50; background: #382a2f; }
+            [data-testid="stSegmentedControl"] button { color: #f0dfe1; }
+            [data-testid="stAlert"] { border-color: #70515a; background-color: #392b30; color: #f3e8e7; }
+            .admin-table-wrap { border-color: #59464b; background: #2a2225; }
+            table.admin-table { color: #f0e5e4; }
+            .admin-table th { border-color: #59464b; background: #48333a; color: #f5dfe3; }
+            .admin-table td { border-color: #49383d; }
+            .admin-table tbody tr:nth-child(even) { background: #302629; }
+            .admin-table tbody tr:hover { background: #443238; }
+            .profile-detail-row { border-color: #59464b; }
+            .profile-detail-key, .profile-detail-value { color: #f0dfe1; }
+            .time-greeting-message, .vip-copy { color: #f2dce0; }
+            .time-greeting-subtitle, .time-greeting-clock { color: #d9c6c8; }
+            [data-testid="stMetric"] { border-color: #59464b; background: #302629; color: #f3e8e7; }
+            </style>
+            """,
+            unsafe_allow_html=True,
+        )
 
 
 def render_profile(profile):
@@ -546,7 +579,6 @@ def render_contact():
     st.markdown('<div class="section-label">We are here to help</div>', unsafe_allow_html=True)
     st.markdown("## Contact the studio")
     st.write("Message us to ask about treatments, therapist availability, or an existing booking.")
-    st.markdown(f"**WhatsApp:** +{DISPATCH_PHONE}")
     st.link_button(
         "Message us on WhatsApp",
         f"https://wa.me/{DISPATCH_PHONE}?{urllib.parse.urlencode({'text': 'Hello Soft Touch, I would like to ask about booking a session.'})}",
@@ -935,6 +967,8 @@ def main():
         page = st.session_state.get("active_page", "Discover")
         st.divider()
         st.caption("A considered moment, made personal.")
+        st.divider()
+        st.toggle("Dark mode", key="dark_mode", help="Switch the app to its dark color theme.")
 
     render_time_greeting()
 
