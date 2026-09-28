@@ -399,6 +399,11 @@ def apply_theme():
             """,
             unsafe_allow_html=True,
         )
+    if st.session_state.get("sidebar_hidden", False):
+        st.markdown(
+            '<style>section[data-testid="stSidebar"] { display: none !important; }</style>',
+            unsafe_allow_html=True,
+        )
 
 
 def render_profile(profile):
@@ -991,12 +996,18 @@ def main():
                 key=f"navigation_{page_name.lower().replace(' ', '_')}",
             ):
                 st.session_state.active_page = page_name
+                st.session_state.sidebar_hidden = True
                 st.rerun()
         page = st.session_state.get("active_page", "Discover")
         st.divider()
         st.caption("A considered moment, made personal.")
         st.divider()
         st.toggle("Dark mode", key="dark_mode", help="Switch the app to its dark color theme.")
+
+    if st.session_state.get("sidebar_hidden", False):
+        if st.button("Back to menu", icon=":material/arrow_back:", key="show_sidebar"):
+            st.session_state.sidebar_hidden = False
+            st.rerun()
 
     render_time_greeting()
 
