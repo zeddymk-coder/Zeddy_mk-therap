@@ -360,6 +360,9 @@ def apply_theme():
             .stApp { color: #f3e8e7; background: radial-gradient(ellipse at 86% 4%, rgba(135, 61, 77, .2), transparent 34rem), linear-gradient(145deg, #211b1d 0%, #292123 55%, #302326 100%); }
             .stApp h1, .stApp h2, .stApp h3, .stApp [data-testid="stMarkdownContainer"] h1, .stApp [data-testid="stMarkdownContainer"] h2, .stApp [data-testid="stMarkdownContainer"] h3 { color: #f1dfe1; }
             .stApp [data-testid="stMarkdownContainer"] p, .stApp [data-testid="stCaptionContainer"], .stApp label, .stApp [data-testid="stWidgetLabel"] { color: #e1d2d3; }
+            .stApp .brand-kicker { color: #f0c8d0 !important; }
+            .stApp .brand-title { color: #fff2f4 !important; }
+            .stApp .brand-copy { color: #eadfe1 !important; }
             section[data-testid="stSidebar"] { background: linear-gradient(180deg, #241c1f 0%, #302326 100%); border-color: #49353a; }
             section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p, section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] { color: #d9c6c8; }
             div[data-testid="stButton"] > button, div[data-testid="stFormSubmitButton"] > button, div[data-testid="stLinkButton"] > a { visibility: visible !important; opacity: 1 !important; border: 2px solid #ffe3e7 !important; background: #e7aeb6 !important; color: #281d21 !important; font-weight: 700 !important; text-shadow: none !important; box-shadow: 0 2px 8px rgba(0, 0, 0, .38) !important; }
@@ -979,7 +982,11 @@ def main():
             if st.button(
                 page_name,
                 icon=page_icon,
-                type="primary" if active_page == page_name else "secondary",
+                type=(
+                    "secondary"
+                    if st.session_state.get("dark_mode", False) and page_name == "Discover"
+                    else "primary" if active_page == page_name else "secondary"
+                ),
                 use_container_width=True,
                 key=f"navigation_{page_name.lower().replace(' ', '_')}",
             ):
