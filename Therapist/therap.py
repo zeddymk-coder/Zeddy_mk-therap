@@ -263,6 +263,16 @@ def apply_theme():
             color: #fff;
             transform: translateY(-1px);
         }
+        div[data-testid="stLinkButton"] > a[href*="wa.me"] {
+            border-color: #bda3da;
+            background: #76539a;
+            color: #fff;
+        }
+        div[data-testid="stLinkButton"] > a[href*="wa.me"]:hover {
+            border-color: #d9c5ee;
+            background: #654486;
+            color: #fff;
+        }
         div[data-testid="stButton"] > button:focus,
         div[data-testid="stFormSubmitButton"] > button:focus,
         div[data-testid="stLinkButton"] > a:focus { box-shadow: 0 0 0 .2rem rgba(135, 61, 77, .2); }
@@ -353,6 +363,8 @@ def apply_theme():
             section[data-testid="stSidebar"] { background: linear-gradient(180deg, #241c1f 0%, #302326 100%); border-color: #49353a; }
             section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p, section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] { color: #d9c6c8; }
             div[data-testid="stButton"] > button, div[data-testid="stFormSubmitButton"] > button, div[data-testid="stLinkButton"] > a { visibility: visible !important; opacity: 1 !important; border: 2px solid #ffe3e7 !important; background: #e7aeb6 !important; color: #281d21 !important; font-weight: 700 !important; text-shadow: none !important; box-shadow: 0 2px 8px rgba(0, 0, 0, .38) !important; }
+            div[data-testid="stLinkButton"] > a[href*="wa.me"] { border-color: #d8c2ed !important; background: #8a64ad !important; color: #fff !important; }
+            div[data-testid="stLinkButton"] > a[href*="wa.me"]:hover { border-color: #f0e4fb !important; background: #9a75bc !important; color: #fff !important; }
             div[data-testid="stButton"] > button:hover, div[data-testid="stFormSubmitButton"] > button:hover, div[data-testid="stLinkButton"] > a:hover { border-color: #fff4f5 !important; background: #f4c2c8 !important; color: #21181b !important; }
             div[data-testid="stButton"] > button[data-testid="stBaseButton-primary"], div[data-testid="stFormSubmitButton"] > button[data-testid="stBaseButton-primary"] { background: #e7aeb6 !important; color: #281d21 !important; }
             div[data-testid="stButton"] > button:focus-visible, div[data-testid="stFormSubmitButton"] > button:focus-visible, div[data-testid="stLinkButton"] > a:focus-visible { outline: 3px solid #f3c3ca !important; outline-offset: 2px; box-shadow: 0 0 0 4px rgba(135, 61, 77, .45) !important; }
@@ -364,8 +376,10 @@ def apply_theme():
             [data-testid="stVerticalBlockBorderWrapper"], [data-testid="stExpander"] { border-color: #59464b; background-color: rgba(48, 36, 40, .86); }
             [data-testid="stTextInput"] input, [data-testid="stNumberInput"] input, [data-testid="stTextArea"] textarea, [data-testid="stSelectbox"] div[data-baseweb="select"] > div { border-color: #604a50; background-color: #342a2d; color: #f3e8e7; }
             [data-testid="stFileUploader"] section { border-color: #604a50; background-color: #302629; }
-            [data-testid="stSegmentedControl"] { border-color: #604a50; background: #382a2f; }
-            [data-testid="stSegmentedControl"] button { color: #f0dfe1; }
+            [data-testid="stSegmentedControl"] { border-color: #777078 !important; background: #29272b !important; }
+            [data-testid="stSegmentedControl"] button { border: 1px solid #777078 !important; background-color: #29272b !important; background-image: none !important; color: #fff1f3 !important; box-shadow: none !important; }
+            [data-testid="stSegmentedControl"] button[aria-pressed="true"], [data-testid="stSegmentedControl"] button[aria-checked="true"], [data-testid="stSegmentedControl"] button[aria-selected="true"], [data-testid="stSegmentedControl"] button[data-selected="true"] { border-color: #d8b1e8 !important; background-color: #18171a !important; background-image: none !important; color: #fff !important; }
+            @media (max-width: 640px) { .stApp { background: #29282b !important; } }
             [data-testid="stAlert"] { border-color: #70515a; background-color: #392b30; color: #f3e8e7; }
             .admin-table-wrap { border-color: #59464b; background: #2a2225; }
             table.admin-table { color: #f0e5e4; }
