@@ -352,8 +352,14 @@ def apply_theme():
             .stApp [data-testid="stMarkdownContainer"] p, .stApp [data-testid="stCaptionContainer"], .stApp label, .stApp [data-testid="stWidgetLabel"] { color: #e1d2d3; }
             section[data-testid="stSidebar"] { background: linear-gradient(180deg, #241c1f 0%, #302326 100%); border-color: #49353a; }
             section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p, section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] { color: #d9c6c8; }
-            section[data-testid="stSidebar"] div[data-testid="stButton"] > button[kind="secondary"] { border-color: #594047; background: #33272b; color: #f0dfe1; }
-            section[data-testid="stSidebar"] div[data-testid="stButton"] > button[kind="secondary"]:hover { background: #493239; color: #fff; }
+            div[data-testid="stButton"] > button, div[data-testid="stFormSubmitButton"] > button, div[data-testid="stLinkButton"] > a { border: 1px solid #d2949e !important; background: #873d4d !important; color: #fffaf8 !important; box-shadow: 0 1px 3px rgba(0, 0, 0, .28); }
+            div[data-testid="stButton"] > button:hover, div[data-testid="stFormSubmitButton"] > button:hover, div[data-testid="stLinkButton"] > a:hover { border-color: #edb5bd !important; background: #a64f60 !important; color: #fff !important; }
+            div[data-testid="stButton"] > button:focus-visible, div[data-testid="stFormSubmitButton"] > button:focus-visible, div[data-testid="stLinkButton"] > a:focus-visible { outline: 3px solid #f3c3ca !important; outline-offset: 2px; box-shadow: 0 0 0 4px rgba(135, 61, 77, .45) !important; }
+            div[data-testid="stButton"] > button:disabled { border-color: #71565b !important; background: #49383c !important; color: #bbaeb0 !important; }
+            section[data-testid="stSidebar"] div[data-testid="stButton"] > button[kind="secondary"] { border-color: #9a6a73 !important; background: #39272d !important; color: #ffeef0 !important; }
+            section[data-testid="stSidebar"] div[data-testid="stButton"] > button[kind="secondary"]:hover { border-color: #edb5bd !important; background: #52343d !important; color: #fff !important; }
+            section[data-testid="stSidebar"] div[data-testid="stButton"] > button[kind="primary"] { border-color: #edb5bd !important; background: #873d4d !important; color: #fffaf8 !important; }
+            section[data-testid="stSidebar"] div[data-testid="stButton"] > button[kind="primary"]:hover { background: #a64f60 !important; }
             [data-testid="stVerticalBlockBorderWrapper"], [data-testid="stExpander"] { border-color: #59464b; background-color: rgba(48, 36, 40, .86); }
             [data-testid="stTextInput"] input, [data-testid="stNumberInput"] input, [data-testid="stTextArea"] textarea, [data-testid="stSelectbox"] div[data-baseweb="select"] > div { border-color: #604a50; background-color: #342a2d; color: #f3e8e7; }
             [data-testid="stFileUploader"] section { border-color: #604a50; background-color: #302629; }
